@@ -12,7 +12,7 @@ public class NameController {
 
     private final NameService nameService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/name/{id}")
     public String getName(@PathVariable("id") String id) {
         return nameService.getName(id);
     }
