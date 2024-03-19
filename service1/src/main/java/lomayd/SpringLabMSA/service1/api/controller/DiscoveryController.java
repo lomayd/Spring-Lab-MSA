@@ -23,4 +23,9 @@ public class DiscoveryController {
     public String getNameByRestTemplateClientCommunicator(@PathVariable("id") String id) {
         return discoveryService.getNameByRestTemplateClientCommunicator(id);
     }
+
+    @GetMapping("/ribbon/name/{id}")
+    public String getNameByRibbonClientCommunicator(@PathVariable("id") String id) {
+        return discoveryService.getNameByRibbonClientCommunicator(id);
+    }
 }

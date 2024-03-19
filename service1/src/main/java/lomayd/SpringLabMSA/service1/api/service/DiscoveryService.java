@@ -1,6 +1,7 @@
 package lomayd.SpringLabMSA.service1.api.service;
 
 import lomayd.SpringLabMSA.service1.api.component.RestTemplateClientCommunicator;
+import lomayd.SpringLabMSA.service1.api.component.RibbonClientCommunicator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
@@ -17,6 +18,7 @@ public class DiscoveryService {
 
     private final DiscoveryClient discoveryClient;
     private final RestTemplateClientCommunicator restTemplateClientCommunicator;
+    private final RibbonClientCommunicator ribbonClientCommunicator;
 
     public List<String> getServices() {
 
@@ -34,5 +36,10 @@ public class DiscoveryService {
     public String getNameByRestTemplateClientCommunicator(String id) {
         log.info("Communication By RestTemplateClientCommunicator.");
         return restTemplateClientCommunicator.getName(id);
+    }
+
+    public String getNameByRibbonClientCommunicator(String id) {
+        log.info("Communication By RibbonClientCommunicator.");
+        return ribbonClientCommunicator.getName(id);
     }
 }
