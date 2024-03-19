@@ -28,4 +28,9 @@ public class DiscoveryController {
     public String getNameByRibbonClientCommunicator(@PathVariable("id") String id) {
         return discoveryService.getNameByRibbonClientCommunicator(id);
     }
+
+    @GetMapping("/feign/name/{id}")
+    public String getNameByFeignClientCommunicator(@PathVariable("id") String id) {
+        return discoveryService.getNameByFeignClientCommunicator(id);
+    }
 }

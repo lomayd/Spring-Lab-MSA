@@ -1,5 +1,6 @@
 package lomayd.SpringLabMSA.service1.api.service;
 
+import lomayd.SpringLabMSA.service1.api.component.FeignClientCommunicator;
 import lomayd.SpringLabMSA.service1.api.component.RestTemplateClientCommunicator;
 import lomayd.SpringLabMSA.service1.api.component.RibbonClientCommunicator;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class DiscoveryService {
     private final DiscoveryClient discoveryClient;
     private final RestTemplateClientCommunicator restTemplateClientCommunicator;
     private final RibbonClientCommunicator ribbonClientCommunicator;
+    private final FeignClientCommunicator feignClientCommunicator;
 
     public List<String> getServices() {
 
@@ -41,5 +43,10 @@ public class DiscoveryService {
     public String getNameByRibbonClientCommunicator(String id) {
         log.info("Communication By RibbonClientCommunicator.");
         return ribbonClientCommunicator.getName(id);
+    }
+
+    public String getNameByFeignClientCommunicator(String id) {
+        log.info("Communication By FeignClientCommunicator.");
+        return id + " is " + feignClientCommunicator.getName(id);
     }
 }
